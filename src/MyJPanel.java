@@ -9,6 +9,8 @@ import javax.swing.*;
 public class MyJPanel extends JPanel implements MouseMotionListener{
 	
 	private Square square = new Square(100);
+	private int centerX;
+	private int centerY;
 	
 	public MyJPanel(){
 		addMouseMotionListener(this);
@@ -17,8 +19,8 @@ public class MyJPanel extends JPanel implements MouseMotionListener{
 		super.paintComponent(g);
 		// TODO Draw square and fill it with random color decided by method getRandomColor()
 		// You should use fillRect()
-		Square square = new Square(100);
-		g.drawRect(0, 0, square.getShapeWidth, square.getShapeHeight);
+		g.setColor(square.getRandomColor());
+		g.fillRect(square.getCenterX(centerX), square.getCenterY(centerY), square.getShapeWidth(), square.getShapeHeight());
 	}
 
 	@Override
